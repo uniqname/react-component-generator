@@ -24,6 +24,7 @@ function log(msg) {
     console.log(msg);
 } /* eslint-disable no-console */
 
+
 function styleWarn(msg) {
     return _chalk2.default.yellow(msg);
 }

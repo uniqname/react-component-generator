@@ -1,42 +1,10 @@
 'use strict';
 
-var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
-
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _minimist2 = require('minimist');
-
-var _minimist3 = _interopRequireDefault(_minimist2);
-
-var _usage = require('./usage');
-
-var _usage2 = _interopRequireDefault(_usage);
-
-var _log = require('./log');
-
-var _path = require('path');
-
-var _releases = require('./releases.js');
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { return step("next", value); }, function (err) { return step("throw", err); }); } } return step("next"); }); }; }
-
-function normalizeBaseDir(p) {
-    return (0, _path.isAbsolute)(p) ? p : (0, _path.resolve)(process.cwd() + ('/' + p));
-}
-
-function die(msg) {
-    (0, _log.info)(msg);
-    process.exit(1);
-}
-
-function end(msg) {
-    (0, _log.info)(msg);
-    process.exit(0);
-}
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
 
 var normalizeArgs = function () {
     var ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee() {
@@ -93,6 +61,38 @@ var normalizeArgs = function () {
         return ref.apply(this, arguments);
     };
 }();
+
+var _minimist2 = require('minimist');
+
+var _minimist3 = _interopRequireDefault(_minimist2);
+
+var _usage = require('./usage');
+
+var _usage2 = _interopRequireDefault(_usage);
+
+var _log = require('./log');
+
+var _path = require('path');
+
+var _releases = require('./releases.js');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { return step("next", value); }, function (err) { return step("throw", err); }); } } return step("next"); }); }; }
+
+function normalizeBaseDir(p) {
+    return (0, _path.isAbsolute)(p) ? p : (0, _path.resolve)(process.cwd() + ('/' + p));
+}
+
+function die(msg) {
+    (0, _log.info)(msg);
+    process.exit(1);
+}
+
+function end(msg) {
+    (0, _log.info)(msg);
+    process.exit(0);
+}
 
 exports.default = _asyncToGenerator(regeneratorRuntime.mark(function _callee2() {
     var _ref2, name, baseDir, dest, list, release, description, releases;

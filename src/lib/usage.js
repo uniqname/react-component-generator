@@ -11,14 +11,14 @@ export default async function() {
 version ${version}
 
 usage:
-ldsjs-react-component [options] component-name
+react-component [options] component-name
 
 options:
 -o              where to create the component
---outdir        eg: ldsjs-react-component -o ./path/to/modules/ my-component
+--outdir        eg: react-component -o ./path/to/modules/ my-component
 
 -d              description of the component
---description   eg: ldsjs-react-component -d "the best component evah" my-component
+--description   eg: react-component -d "the best component evah" my-component
 
 --list          show all available releases
 

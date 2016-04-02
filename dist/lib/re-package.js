@@ -1,20 +1,22 @@
 "use strict";
 
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 // take a package.json file
 // modify it
 // resave it
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
 
 exports.default = function (_ref) {
     var file = _ref.file;
     var name = _ref.name;
     var _ref$description = _ref.description;
     var description = _ref$description === undefined ? "" : _ref$description;
+
 
     return new Promise(function (resolve, reject) {
 

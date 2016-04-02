@@ -21,7 +21,7 @@ exports.default = _asyncToGenerator(regeneratorRuntime.mark(function _callee() {
 
                 case 2:
                     l = _context.sent;
-                    return _context.abrupt('return', 'create a react component\nversion ' + _package.version + '\n\nusage:\nldsjs-react-component [options] component-name\n\noptions:\n-o              where to create the component\n--outdir        eg: ldsjs-react-component -o ./path/to/modules/ my-component\n\n-d              description of the component\n--description   eg: ldsjs-react-component -d "the best component evah" my-component\n\n--list          show all available releases\n\n--release       create a component from a specific template release version\n                defaults to latest (' + l + ')\n');
+                    return _context.abrupt('return', 'create a react component\nversion ' + _package.version + '\n\nusage:\nreact-component [options] component-name\n\noptions:\n-o              where to create the component\n--outdir        eg: react-component -o ./path/to/modules/ my-component\n\n-d              description of the component\n--description   eg: react-component -d "the best component evah" my-component\n\n--list          show all available releases\n\n--release       create a component from a specific template release version\n                defaults to latest (' + l + ')\n');
 
                 case 4:
                 case 'end':
