@@ -8,8 +8,6 @@ import unzip from './lib/unzip.js';
 import repackage from './lib/re-package.js';
 import {success, error as logError} from './lib/log';
 
-
-
 (async () => {
 
     try {
@@ -17,13 +15,13 @@ import {success, error as logError} from './lib/log';
             zipfile = path.resolve(`${__dirname}/../releases/${release}.zip`);
 
         await ensureDir(baseDir);
-        await unzip( zipfile, dest );
+        await unzip(zipfile, dest);
         await repackage({name, description, file: `${dest}/package.json`});
         success(`created '${name}' in '${dest}'`);
 
-    } catch(error) {
+    } catch (error) {
         logError(error);
-        process.exit(1);
+        throw Error(1);
     }
 
 

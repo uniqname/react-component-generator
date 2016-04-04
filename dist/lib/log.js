@@ -5,8 +5,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.log = log;
 exports.styleWarn = styleWarn;
-exports.warn = warn;
 exports.styleError = styleError;
+exports.warn = warn;
 exports.error = error;
 exports.styleInfo = styleInfo;
 exports.info = info;
@@ -29,12 +29,12 @@ function styleWarn(msg) {
     return _chalk2.default.yellow(msg);
 }
 
-function warn(msg) {
-    console.error(styleError(msg));
-}
-
 function styleError(msg) {
     return _chalk2.default.red(msg);
+}
+
+function warn(msg) {
+    console.error(styleError(msg));
 }
 
 function error(msg) {

@@ -19,9 +19,13 @@ var list = exports.list = function () {
                                     return reject(err);
                                 }
 
-                                resolve(files.map(function (f) {
+                                resolve(files.filter(function (f) {
+                                    return !f.match(/^\./);
+                                }).map(function (f) {
                                     return f.replace('.zip', '');
                                 }));
+
+                                return undefined;
                             });
                         });
 

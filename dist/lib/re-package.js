@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -15,7 +15,7 @@ exports.default = function (_ref) {
     var file = _ref.file;
     var name = _ref.name;
     var _ref$description = _ref.description;
-    var description = _ref$description === undefined ? "" : _ref$description;
+    var description = _ref$description === undefined ? '' : _ref$description;
 
 
     return new Promise(function (resolve, reject) {
@@ -26,14 +26,16 @@ exports.default = function (_ref) {
             (0, _fs.writeFile)(file, JSON.stringify(_extends({}, JSON.parse(data), {
                 name: name,
                 description: description,
-                version: "1.0.0",
+                version: '1.0.0',
                 author: undefined,
                 repository: undefined
-            }), null, 4), function (err) {
-                return err ? reject(err) : resolve();
+            }), null, 4), function (er) {
+                return er ? reject(er) : resolve();
             });
+
+            return undefined;
         });
     });
 };
 
-var _fs = require("fs");
+var _fs = require('fs');

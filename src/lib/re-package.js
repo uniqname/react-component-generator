@@ -3,12 +3,12 @@ import {readFile, writeFile} from 'fs';
 // take a package.json file
 // modify it
 // resave it
-export default function({ file, name, description = "" }) {
+export default function ({ file, name, description = '' }) {
 
     return new Promise((resolve, reject) => {
 
         readFile(file, (err, data) => {
-            if(err) return reject(err);
+            if (err) return reject(err);
 
             writeFile(
                 file,
@@ -16,12 +16,14 @@ export default function({ file, name, description = "" }) {
                     ...(JSON.parse(data)),
                     name,
                     description,
-                    version: "1.0.0",
+                    version: '1.0.0',
                     author: undefined,
                     repository: undefined
                 }, null, 4),
-                err => err ? reject(err) : resolve()
+                er => er ? reject(er) : resolve()
             );
+
+            return undefined;
         });
-    })
+    });
 }

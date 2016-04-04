@@ -1,6 +1,6 @@
 import { copy } from 'fs-extra';
 
-export default function(src, dest) {
+export default function (src, dest) {
     return new Promise((resolve, reject) => {
         copy(
             src,
@@ -8,7 +8,7 @@ export default function(src, dest) {
             {
                 clobber: false,
                 filter: path => {
-                    return !/\/[.]git(\/.*)?$/.test(path);
+                    return !(/\/[.]git(\/.*)?$/).test(path);
                 }
             },
             err => err ? reject(err) : resolve()

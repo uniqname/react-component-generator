@@ -70,7 +70,7 @@ _asyncToGenerator(regeneratorRuntime.mark(function _callee() {
                     _context.t0 = _context['catch'](0);
 
                     (0, _log.error)(_context.t0);
-                    process.exit(1);
+                    throw Error(1);
 
                 case 23:
                 case 'end':
