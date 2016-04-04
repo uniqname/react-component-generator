@@ -6,7 +6,6 @@ import {readFile, writeFile} from 'fs';
 export default function ({ file, name, description = '' }) {
 
     return new Promise((resolve, reject) => {
-
         readFile(file, (err, data) => {
             if (err) return reject(err);
 

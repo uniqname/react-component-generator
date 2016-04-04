@@ -1,9 +1,5 @@
 'use strict';
 
-var _package = require('../../package.json');
-
-var _package2 = _interopRequireDefault(_package);
-
 var _admZip = require('adm-zip');
 
 var _admZip2 = _interopRequireDefault(_admZip);
@@ -32,7 +28,7 @@ var unwrapDir = function unwrapDir(dir) {
   };
 };
 var addFile = function addFile(zipper, file) {
-  zipper.addFile(file.entryName, file.getCompressedData());
+  zipper.addFile(file.entryName, file.getData());
   return zipper;
 };
 
@@ -49,7 +45,9 @@ var download = function download(repo) {
         var head = entries.slice(0, 1)[0];
         var tail = entries.slice(1);
 
-        tail.map(unwrapDir(head.entryName)).reduce(addFile, zip);
+        tail.map(unwrapDir(head.entryName)).filter(function (file) {
+          return !file.isDirectory;
+        }).reduce(addFile, zip);
         zip.writeZip('' + outPath);
 
         console.log('react-component-template ' + t + ' has been downloaded to ' + outPath);

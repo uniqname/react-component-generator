@@ -19,7 +19,6 @@ exports.default = function (_ref) {
 
 
     return new Promise(function (resolve, reject) {
-
         (0, _fs.readFile)(file, function (err, data) {
             if (err) return reject(err);
 

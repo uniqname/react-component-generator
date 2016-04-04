@@ -1,5 +1,3 @@
-import pkg from '../../package.json';
-
 import Zip from 'adm-zip';
 import request from 'request';
 import fs from 'fs';
@@ -13,7 +11,7 @@ const unwrapDir = (dir) => (f) => {
   return f;
 };
 const addFile = (zipper, file) => {
-  zipper.addFile(file.entryName, file.getCompressedData());
+  zipper.addFile(file.entryName, file.getData());
   return zipper;
 };
 
@@ -30,6 +28,7 @@ const download = (repo) => (t) => (outPath) =>
     const tail = entries.slice(1);
 
     tail.map(unwrapDir(head.entryName))
+        .filter(file => !file.isDirectory)
         .reduce(addFile, zip);
     zip.writeZip(`${outPath}`);
 
