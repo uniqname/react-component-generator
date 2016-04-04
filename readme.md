@@ -34,7 +34,9 @@ options:
 
 ## Module Template
 
-The project template this CLI uses can be found at .
+The project template this CLI uses can be found at https://github.com/uniqname/react-component-template.
+
+A given version of the template can be synced with this generator by running `npm run download-template -- --tag <tag name>`
 
 
 ## Contributing

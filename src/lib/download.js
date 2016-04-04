@@ -6,7 +6,7 @@ import fs from 'fs';
 import minimist from 'minimist';
 
 const argv = minimist(process.argv.slice(2));
-const tag = argv.t || argv.tag || `v${pkg.version}`;
+const tag = argv.t || argv.tag || 'master';
 
 const unwrapDir = (dir) => (f) => {
   f.entryName = f.entryName.replace(dir, '');
@@ -20,7 +20,8 @@ const addFile = (zipper, file) => {
 const download = (repo) => (t) => (outPath) =>
   request(`${repo}/archive/${t}.zip`)
   .pipe(fs.createWriteStream(outPath))
-  .on('close', function () {
+  .on('error', (e) => console.log(`Failed to download ${repo}/archive/${t}`, e))
+  .on('close', () => {
     const gitHubZip = new Zip(outPath);
     const zip = new Zip();
 
@@ -30,7 +31,7 @@ const download = (repo) => (t) => (outPath) =>
 
     tail.map(unwrapDir(head.entryName))
         .reduce(addFile, zip);
-    zip.writeZip(`${outPath}.zip`);
+    zip.writeZip(`${outPath}`);
 
     console.log(`react-component-template ${t} has been downloaded to ${outPath}`);
 
