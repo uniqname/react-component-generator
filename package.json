@@ -1,6 +1,6 @@
 {
   "name": "react-component-boilerplate",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "CLI tool for bootstrapping development of a React Component",
   "main": "dist/index.js",
   "bin": {
